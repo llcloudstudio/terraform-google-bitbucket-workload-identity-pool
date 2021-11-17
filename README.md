@@ -3,6 +3,7 @@
 This module will create a basic workload identity pool in a gcp project.  
 * This is the first piece needed when configuring Bitbucket pipelines via OpenID Connect (OIDC)
 * Typically you would have one of these per 3rd party vendor. Example: if you have workload from bitbucket, azure and aws, you would have a separate pool for each vendor.
+* Related modules you will likely also need are: 
 
 
 
@@ -13,7 +14,7 @@ To use this module:
 1. In your main.tf include the following: 
 ```
 module "identity_pool_for_vendor" {
-  source                    = "terraform-google-bitbucket-workload-identity-pool"
+  source                    = "llcloudstudio/bitbucket-workload-identity-pool/google"
   project_id                = "gcp_project_id"
   workload_identity_pool_id = "unique_name"
 }
